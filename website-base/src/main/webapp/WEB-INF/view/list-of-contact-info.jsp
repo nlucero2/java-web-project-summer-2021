@@ -11,6 +11,20 @@
 <style>
 	ul { list-style-type: circle; }
 	ul ul { list-style-type: "-"; }
+	
+	.buttons {
+	width: 100px;
+	height: 25px;
+	margin: 0 auto;
+	display: inline;
+	}
+	
+	.input-button {
+	width: 100px;
+	height: 25px;
+	margin: 0 auto;
+	display: inline;
+	}
 </style>
 	
 	<title>Accurate Accounting</title>
@@ -65,21 +79,24 @@
 				<ul>
 					<li>Here is a description of the service number 5</li>
 				</ul>
-				<br>
 				
 		</ul>
 	</div>
 	
-	<!-- Add a logout button -->
-	<form:form action="${pageContext.request.contextPath}/logout" method="POST">
+	<br>
+	<hr>
+	<br>
 	
-		<input type="submit" value="Logout" />
+	<!-- Add a logout button -->
+	<form:form class="buttons" action="${pageContext.request.contextPath}/logout" method="POST">
+	
+		<input class="input-button" type="submit" value="Logout" />
 	
 	</form:form>
 	
 	
 	
-	<br><br><br>
+	
 	
 </body>
 </html>

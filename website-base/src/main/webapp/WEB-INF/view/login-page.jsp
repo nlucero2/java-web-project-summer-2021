@@ -10,9 +10,16 @@
 <head>
 	<meta charset="ISO-8859-1">
 	
-	<style>
-		.failed { color: red; }
-	</style>
+<style>
+	.failed { color: red; }
+	
+	.input-button {
+	width: 100px;
+	height: 25px;
+	margin: 0 auto;
+	display: inline;
+	}
+</style>
 	
 	<title>Login Page</title>
 </head>
@@ -36,9 +43,18 @@
 			Password: <input type="password" name="password" />
 		</p>
 		
-		<input type="submit" value="Login" />
+		<input class="input-button" type="submit" value="Login" />
 		
 	</form:form>
+	
+	<br><br>
+	<hr>
+	<br>
+	
+	<!-- add a Back to Home Page link -->
+	<a href="${pageContext.request.contextPath}/">Back to Home Page</a>
+	
+	
 	
 </body>
 </html>

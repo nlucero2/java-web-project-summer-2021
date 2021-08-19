@@ -45,4 +45,24 @@ public class DemoController {
 		return "list-of-contact-info";
 	}
 	
+	
+	// this function is just in case the user gets to a page that they don't have access to
+	@GetMapping("/access-denied")
+	public String showAccessDenied() {
+		
+		System.out.println("\n\n********** showAccessDenied() method **********\n\n");
+		
+		return "access-denied";
+	}
+	
+	
+	// this function logs out by invalidating the HTTP Session and then shows the home/landing page
+//	@GetMapping("/logout")
+//	public String logoutRedirectToHome() {
+//		
+//		System.out.println("\n\n********** logoutRedirectToHome() method **********\n\n");
+//		
+//		return "home";
+//	}
+	
 }
