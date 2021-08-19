@@ -13,7 +13,7 @@ public class MySpringMcvDispatcherServletInitializer extends AbstractAnnotationC
 	
 	
 	
-	// we use the DemoAppConfig class that we created to allow use of MVC and .jsp files
+	// we use the ApplicationConfig class that we created to allow use of MVC and .jsp files
 	// this method replaces the web.xml code:
  	//	<servlet>
     //		<servlet-name>dispatcher</servlet-name>
@@ -28,7 +28,10 @@ public class MySpringMcvDispatcherServletInitializer extends AbstractAnnotationC
   	//	</servlet>
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class[] {DemoAppConfig.class};
+		
+		System.out.println("\n\n********** getServletConfigClasses() method in -> MySpringMcvDispatcherServletInitializer class **********\n\n");
+		
+		return new Class[] { ApplicationConfig.class };
 	}
 	
 	
@@ -40,7 +43,10 @@ public class MySpringMcvDispatcherServletInitializer extends AbstractAnnotationC
 	//	<servlet-mapping>
 	@Override
 	protected String[] getServletMappings() {
-		return new String[] {"/"};
+		
+		System.out.println("\n\n********** getServletMappings() method in -> MySpringMcvDispatcherServletInitializer class **********\n\n");
+		
+		return new String[] { "/" };
 	}
 
 }
