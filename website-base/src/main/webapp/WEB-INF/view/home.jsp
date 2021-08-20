@@ -9,24 +9,17 @@
 <head>
 
 <style>
-	ul { list-style-type: circle; }
-	ul ul { list-style-type: "-"; }
-	
-	.buttons {
-	width: 100px;
-	height: 25px;
-	margin: 0 auto;
-	display: inline;
-	}
-	
-	.input-button {
-	width: 100px;
-	margin: 0 auto;
-	display: inline;
-	}
+
+ul { list-style-type: circle; }
+ul ul { list-style-type: "-"; }
+
+.buttons { font-weight: bold; width: 225px; padding: 4px;font-size: 16px;
+		margin: 30px auto; background: #cccccc; 
+		border: 1px solid #666; border-radius: 5px }
+
 </style>
 
-<title>Accurate Accounting</title>
+	<title>Accurate Accounting - Home Page</title>
 
 </head>
 
@@ -106,6 +99,8 @@
 	<!-- Add a login button -->
 	<a href="${pageContext.request.contextPath}/list-of-contact-info"><button class="buttons">Login</button></a>
 	
+	<!-- the request info button -->
+	<input type="button" value="Submit a Request For Info" onclick="window.location.href='addContactInfo'; return false;" class="buttons" />
 		
 </body>
 </html>

@@ -29,7 +29,7 @@ public class MySpringMcvDispatcherServletInitializer extends AbstractAnnotationC
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
 		
-		System.out.println("\n\n********** getServletConfigClasses() method in -> MySpringMcvDispatcherServletInitializer class **********\n\n");
+		System.out.println("********** getServletConfigClasses() method in -> MySpringMcvDispatcherServletInitializer class **********");
 		
 		return new Class[] { ApplicationConfig.class };
 	}
@@ -44,7 +44,7 @@ public class MySpringMcvDispatcherServletInitializer extends AbstractAnnotationC
 	@Override
 	protected String[] getServletMappings() {
 		
-		System.out.println("\n\n********** getServletMappings() method in -> MySpringMcvDispatcherServletInitializer class **********\n\n");
+		System.out.println("********** getServletMappings() method in -> MySpringMcvDispatcherServletInitializer class **********");
 		
 		return new String[] { "/" };
 	}

@@ -8,20 +8,28 @@
 <html>
 
 <head>
+
 	<meta charset="ISO-8859-1">
-	
-<style>
-	.failed { color: red; }
-	
-	.input-button {
-	width: 100px;
-	height: 25px;
-	margin: 0 auto;
-	display: inline;
-	}
+
+<style type="text/css">
+
+form { margin-top: 10px; }
+
+label { font-size: 16px; width: 100px; display: block; text-align: right;
+		margin-right: 10px; margin-top: 8px; margin-bottom: 8px; }
+
+input { width: 250px; border: 1px solid #666; border-radius: 5px;
+		padding: 4px; font-size: 16px; }
+
+.theButton { font-weight: bold; width: 130px; padding: 5px 10px;
+		margin-top: 30px; background: #cccccc; }
+
+
+
 </style>
 	
 	<title>Login Page</title>
+
 </head>
 
 <body>
@@ -43,7 +51,7 @@
 			Password: <input type="password" name="password" />
 		</p>
 		
-		<input class="input-button" type="submit" value="Login" />
+		<input class="theButton" type="submit" value="Login" />
 		
 	</form:form>
 	
