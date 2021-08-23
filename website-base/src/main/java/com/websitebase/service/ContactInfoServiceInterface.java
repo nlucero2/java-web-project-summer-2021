@@ -22,6 +22,6 @@ public interface ContactInfoServiceInterface {
 	public List<ContactInfo> searchContactInfo(String theSearchName);
 
 	// this is for sorting the contact info list
-//	public List<ContactInfo> getAllContactInfo(int theSortField);
+	public List<ContactInfo> getAllContactInfo(int theSortField);
 	
 }

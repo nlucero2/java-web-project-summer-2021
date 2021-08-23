@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.websitebase.entity.ContactInfo;
+import com.websitebase.utility.SortingUtility;
 
 @Repository
 public class ContactInfoDAO implements ContactInfoDOAInterface {
@@ -113,37 +114,65 @@ public class ContactInfoDAO implements ContactInfoDOAInterface {
 	
 	
 	// this is for sorting the contact info list  ***if we want sorting***
-//	@Override
-//	public List<ContactInfo> getAllContactInfo(int theSortField) {
-//		
-//		// determine sort field
-//		String theFieldName = null;
-//		
-//		switch (theSortField) {
-//			case SortUtils.FIRST_NAME:
-//				theFieldName = "firstName";
-//				break;
-//			case SortUtils.LAST_NAME:
-//				theFieldName = "lastName";
-//				break;
-//			case SortUtils.EMAIL:
-//				theFieldName = "email";
-//				break;
-//				
-//			default:
-//				// if nothing matches, the default sort field to sort by is lastName
-//				theFieldName = "lastName";
-//		}
-//		
-//		// create a query
-//		String queryString = "from ContactInfo order by " + theFieldName;
-//		TypedQuery<ContactInfo> theQuery = entityManager.createQuery(queryString, ContactInfo.class);
-//		
-//		// execute the query and get the list of results
-//		List<ContactInfo> contactInfoList = theQuery.getResultList();
-//		
-//		// return the results
-//		return contactInfoList;
-//	}
-
+	@Override
+	public List<ContactInfo> getAllContactInfo(int theSortField) {
+		
+		// get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+	
+		// create a string variable to hold the corresponding sortField string
+		String fieldName = null;
+		
+		// set fieldName based on theSortField that is passed in  
+		switch (theSortField) {
+			case SortingUtility.FIRST_NAME:
+				fieldName = "firstName";
+				break;
+	
+			case SortingUtility.LAST_NAME:
+				fieldName = "lastName";
+				break;
+	
+			case SortingUtility.PHONE:
+				fieldName = "phone";
+				break;
+	
+			case SortingUtility.EMAIL:
+				fieldName = "email";
+				break;
+				
+			default:
+				// if nothing matches, the default sort field to sort by is lastName
+				fieldName = null;
+				break;
+		}
+		
+		// create the query string
+		String queryString;
+		if (fieldName != null) {
+			
+			queryString = "from ContactInfo order by " + fieldName;
+			
+		} else {
+			
+			queryString = "from ContactInfo";
+			
+		}
+		
+		// create a query
+		Query<ContactInfo> theQuery = currentSession.createQuery(queryString, ContactInfo.class);
+		
+		// execute the query and get the list of results
+		List<ContactInfo> contactInfoList = theQuery.getResultList();
+		
+		// return the results
+		return contactInfoList;
+	}
+	
+	
 }
+
+
+
+
+

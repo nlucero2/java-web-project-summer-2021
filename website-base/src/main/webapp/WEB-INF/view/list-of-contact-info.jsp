@@ -1,5 +1,6 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="com.websitebase.utility.SortingUtility" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
@@ -17,7 +18,7 @@ html, body{ margin-left:15px; margin-right:15px; padding:0px;
 table { border-collapse:collapse; border-bottom:1px solid gray;
 		font-family: Tahoma,Verdana,Segoe,sans-serif; width:72%; }
 
-th { border-top:2px solid gray; border-bottom:2px solid gray; background:none repeat scroll 0 0 purple;
+th { border-top:2px solid gray; border-bottom:2px solid gray; background:none repeat scroll 0 0 Fuchsia;
 		padding:10px; color: #FFFFFF; }
 
 tr { border-top:2px solid gray; border-bottom:2px solid gray; text-align:center; }
@@ -26,7 +27,7 @@ tr:nth-child(even) {background: #FFFFFF}
 tr:nth-child(odd) {background: #BBBBBB}	
 
 #wrapper {width: 100%; margin-top: 0px; }
-#header {width: 70%; background: purple; margin-top: 0px; padding:15px 0px 15px 15px;}	/*#09c332*/
+#header {width: 70%; background: Fuchsia; margin-top: 0px; padding:15px 0px 15px 15px;}	/*#09c332*/
 #header h2 {width: 100%; margin:auto; color: #FFFFFF;}
 #container {width: 100%; margin:auto}
 #container h3 {color: #000;}
@@ -65,27 +66,79 @@ ul ul { list-style-type: "-"; }
 			
 			
 			<!-- PUT SEARCH BUTTON HERE -->
+			<form:form action="search" method="GET" >
+				Search by name: <input name="theSearchName" type="text" />
+				
+				<input class="buttons" value="Search" type="submit" />
+				
+				<i>*To reset the list, click the Search button while text box is empty</i>
+			</form:form>
+			
+			<!-- *sorting links* -->
+			<!-- construct a sort link for first name and pass the value used to sort -->
+			<c:url var="sortLinkFirstName" value="/list-of-contact-info">
+				<c:param name="sortingString" value="<%=Integer.toString(SortingUtility.FIRST_NAME)%>" />
+			</c:url>
+			
+			<!-- construct a sort link for last name and pass the value used to sort -->
+			<c:url var="sortLinkLastName" value="/list-of-contact-info">
+				<c:param name="sortingString" value="<%=Integer.toString(SortingUtility.LAST_NAME)%>" />
+			</c:url>
+			
+			<!-- construct a sort link for phone and pass the value used to sort -->
+			<c:url var="sortLinkPhone" value="/list-of-contact-info">
+				<c:param name="sortingString" value="<%=Integer.toString(SortingUtility.PHONE)%>" />
+			</c:url>
+			
+			<!-- construct a sort link for email and pass the value used to sort -->
+			<c:url var="sortLinkEmail" value="/list-of-contact-info">
+				<c:param name="sortingString" value="<%=Integer.toString(SortingUtility.EMAIL)%>" />
+			</c:url>
+			<!-- *sorting links* -->
+
+<!-- 			<!-- *sorting links* -->
+<!-- 			<!-- construct a sort link for first name and pass the value used to sort -->
+<%-- 			<c:url var="sortLinkFirstName" value="/list-of-contact-info"> --%>
+<%-- 				<c:param name="sortingString" value="SortingUtility.FIRST_NAME" /> --%>
+<%-- 			</c:url> --%>
+			
+<!-- 			<!-- construct a sort link for last name and pass the value used to sort -->
+<%-- 			<c:url var="sortLinkLastName" value="/list-of-contact-info"> --%>
+<%-- 				<c:param name="sortingString" value="SortingUtility.LAST_NAME" /> --%>
+<%-- 			</c:url> --%>
+			
+<!-- 			<!-- construct a sort link for phone and pass the value used to sort -->
+<%-- 			<c:url var="sortLinkPhone" value="/list-of-contact-info"> --%>
+<%-- 				<c:param name="sortingString" value="SortingUtility.PHONE" /> --%>
+<%-- 			</c:url> --%>
+			
+<!-- 			<!-- construct a sort link for email and pass the value used to sort -->
+<%-- 			<c:url var="sortLinkEmail" value="/list-of-contact-info"> --%>
+<%-- 				<c:param name="sortingString" value="SortingUtility.EMAIL" /> --%>
+<%-- 			</c:url> --%>
+<!-- 			<!-- *sorting links* -->
+			
 			
 			
 			<!-- the html table here -->
+			
 			<table>
 			
-<!-- 			THIS COMMENTED OUT SECTION IS FO THE SORT LINKS -->
-<!-- 				<tr> -->
-<%-- 					<th><a href="${sortLinkFirstName}">First Name</a></th>			<!-- *CHANGED TO LINKS FOR SORT* --> --%>
-<%-- 					<th><a href="${sortLinkLastName}">Last Name</a></th>			<!-- *CHANGED TO LINKS FOR SORT* --> --%>
-<%-- 					<th><a href="${sortLinkPhone}">Phone</a></th>					<!-- *CHANGED TO LINKS FOR SORT* --> --%>
-<%-- 					<th><a href="${sortLinkEmail}">Email</a></th>					<!-- *CHANGED TO LINKS FOR SORT* --> --%>
-<!-- 					<th>Action</th>													*ADDITION FOR UPDATE* -->
-<!-- 				</tr> -->
-
 				<tr>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Phone</th>
-					<th>Email</th>
-					<th>Action</th>
+					<th><a href="${sortLinkFirstName}">First Name</a></th>			<!-- *CHANGED TO LINKS FOR SORT* -->
+					<th><a href="${sortLinkLastName}">Last Name</a></th>			<!-- *CHANGED TO LINKS FOR SORT* -->
+					<th><a href="${sortLinkPhone}">Phone</a></th>					<!-- *CHANGED TO LINKS FOR SORT* -->
+					<th><a href="${sortLinkEmail}">Email</a></th>					<!-- *CHANGED TO LINKS FOR SORT* -->
+					<th>Action</th>													<!-- *header for delete link* -->
 				</tr>
+
+<!-- 				<tr> -->
+<!-- 					<th>First Name</th> -->
+<!-- 					<th>Last Name</th> -->
+<!-- 					<th>Phone</th> -->
+<!-- 					<th>Email</th> -->
+<!-- 					<th>Action</th> -->
+<!-- 				</tr> -->
 				
 				<!-- Loop over and print our customers -->
 				<c:forEach var="tempContactInfo" items="${contactInfos}">

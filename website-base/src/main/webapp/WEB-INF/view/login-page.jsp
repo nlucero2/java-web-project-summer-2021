@@ -24,7 +24,7 @@ input { width: 250px; border: 1px solid #666; border-radius: 5px;
 .theButton { font-weight: bold; width: 130px; padding: 5px 10px;
 		margin-top: 30px; background: #cccccc; }
 
-
+.failed { color: red; }
 
 </style>
 	

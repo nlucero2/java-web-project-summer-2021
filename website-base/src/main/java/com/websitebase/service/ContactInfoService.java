@@ -64,11 +64,11 @@ public class ContactInfoService implements ContactInfoServiceInterface {
 	
 	
 	// this is for sorting the contact info list
-//	@Override
-//	@Transactional
-//	public List<ContactInfo> getAllContactInfo(int theSortField) {
-//		
-//		return contactInfoDOA.getAllContactInfo(theSortField);
-//	}
+	@Override
+	@Transactional
+	public List<ContactInfo> getAllContactInfo(int theSortField) {
+		
+		return contactInfoDOA.getAllContactInfo(theSortField);
+	}
 	
 }
